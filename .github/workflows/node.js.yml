@@ -46,9 +46,9 @@ jobs:
       uses: octokit/request-action@v2.1.0
       with:
         # TODO: make user/repo dynamic
-        route: POST /repos/{{ github.repository_owner }}/${{ github.event.repo.name }}/issues/${{ github.event.number }}/comments
+        route: POST /repos/{{ github.repository_owner }}/${{ github.event.repository.name }}/issues/${{ github.event.number }}/comments
         owner: ${{ github.repository_owner }}
-        repo: ${{ github.event.repo.name }}
+        repo: ${{ github.event.repository.name }}
         issue_number: ${{ github.event.number }}
         body: ":tada::tada::tada:![image](https://drive.google.com/uc?export=view&id=1QrUMKp0VjbRRQLG-rrN7iynADMvFIJJD)"
       env:
