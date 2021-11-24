@@ -49,12 +49,13 @@ jobs:
       with:
         # HTTP Verb + path as shown on https://developer.github.com/v3/
         # TODO: make user/repo dynamic
-        route: /repos/kriscfoster/github-actions/issues/${{github.event.number}}/comments
+        route: /repos/kriscfoster/github-actions/issues/5/comments
         # Custom media type in the Accept header
 #         body: "{\"body\": \"hi\"}"
         owner: "kriscfoster"
         repo: "github-actions"
-        issue_number: ${{github.event.number}}
+        issue_number: 5
+        #${{github.event.number}}
         body: 'body'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
