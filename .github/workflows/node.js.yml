@@ -3,7 +3,9 @@ name: Node.js CI
 on:
   push:
     branches: [ main ]
-
+  pull_request:
+    branches: [ main ]
+    
 jobs:
   build:
 
@@ -39,3 +41,17 @@ jobs:
         data: "{\"context_uri\":\"${{ secrets.SPOTIFY_CONTEXT_URI }}\",\"offset\":{\"position\":0},\"position_ms\":0}"
         # Bearer Authentication Token
         bearerToken: ${{ secrets.SPOTIFY_PLAYER_API_TOKEN }}
+    - name: GitHub API Request
+      # You may pin to the exact commit or the version.
+      # uses: octokit/request-action@7e93b91076fad3920c29d44eb2a6311d929db3dd
+      uses: octokit/request-action@v2.1.0
+      with:
+        # HTTP Verb + path as shown on https://developer.github.com/v3/
+        route: /repos/kriscfoster/github-actions/issues/{issue_number}/comments
+        # Custom media type in the Accept header
+        body: "{\"body\": \"hi\"}"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+# ![image](https://drive.google.com/uc?export=view&id=1Jcv3rzTXwgmJuQgAOkLk4ONAk0J2-eCP)
