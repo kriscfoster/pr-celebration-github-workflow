@@ -51,7 +51,10 @@ jobs:
         # TODO: make user/repo dynamic
         route: /repos/kriscfoster/github-actions/issues/${{github.event.number}}/comments
         # Custom media type in the Accept header
-        body: "{\"body\": \"hi\"}"
+#         body: "{\"body\": \"hi\"}"
+        owner: "kriscfoster",
+        repo: "github-actions",
+        body: 'body'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
