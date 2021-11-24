@@ -1,8 +1,8 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ main ]
+#   push:
+#     branches: [ main ]
   pull_request:
     branches: [ main ]
     
@@ -48,7 +48,8 @@ jobs:
       uses: octokit/request-action@v2.1.0
       with:
         # HTTP Verb + path as shown on https://developer.github.com/v3/
-        route: /repos/kriscfoster/github-actions/issues/{issue_number}/comments
+        # TODO: make user/repo dynamic
+        route: /repos/kriscfoster/github-actions/issues/${{github.event.number}}/comments
         # Custom media type in the Accept header
         body: "{\"body\": \"hi\"}"
       env:
