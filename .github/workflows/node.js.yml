@@ -3,8 +3,6 @@ name: Node.js CI
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build:
@@ -26,8 +24,8 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - run: npm test
-    - name: HTTP Request Action
-      # You may pin to the exact commit or the version.
+    - name: Play celebration song on Google Home with Spotify
+      # https://developer.spotify.com/console/put-play
       # uses: fjogeleit/http-request-action@8e939c608aea2d5df19da3e8229cf035f7aa9e4c
       uses: fjogeleit/http-request-action@v1.8.1
       with:
