@@ -56,7 +56,7 @@ jobs:
         owner: "kriscfoster"
         repo: "actions-experiments"
         issue_number: ${{github.event.number}}
-        body: ":tada: :tada: :tada: ![image](https://drive.google.com/uc?export=view&id=1QrUMKp0VjbRRQLG-rrN7iynADMvFIJJD)"
+        body: ":tada::tada::tada:![image](https://drive.google.com/uc?export=view&id=1QrUMKp0VjbRRQLG-rrN7iynADMvFIJJD)"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
