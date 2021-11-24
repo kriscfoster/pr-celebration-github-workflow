@@ -54,6 +54,7 @@ jobs:
 #         body: "{\"body\": \"hi\"}"
         owner: "kriscfoster"
         repo: "github-actions"
+        issue_number: ${{github.event.number}}
         body: 'body'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
