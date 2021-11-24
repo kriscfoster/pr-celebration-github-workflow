@@ -1,4 +1,3 @@
----
 name: Node.js CI
 
 on:
@@ -44,19 +43,13 @@ jobs:
 #         # Bearer Authentication Token
 #         bearerToken: ${{ secrets.SPOTIFY_PLAYER_API_TOKEN }}
     - name: GitHub API Request
-      # You may pin to the exact commit or the version.
-      # uses: octokit/request-action@7e93b91076fad3920c29d44eb2a6311d929db3dd
       uses: octokit/request-action@v2.1.0
       with:
-        # HTTP Verb + path as shown on https://developer.github.com/v3/
         # TODO: make user/repo dynamic
-        route: POST /repos/kriscfoster/actions-experiments/issues/${{github.event.number}}/comments
-        # Custom media type in the Accept header
-#         body: "{\"body\": \"hi\"}"
-        owner: "kriscfoster"
-        repo: "actions-experiments"
-        issue_number: ${{github.event.number}}
+        route: POST /repos/{{ github.repository_owner }}/${{ github.repository.name }}/issues/${{ github.event.number }}/comments
+        owner: ${{ github.repository_owner }}
+        repo: ${{ github.repository.name }}
+        issue_number: ${{ github.event.number }}
         body: ":tada::tada::tada:![image](https://drive.google.com/uc?export=view&id=1QrUMKp0VjbRRQLG-rrN7iynADMvFIJJD)"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
