@@ -5,7 +5,7 @@ on:
 #     branches: [ main ]
   pull_request:
     branches: [ main ]
-    
+
 jobs:
   build:
 
@@ -52,8 +52,8 @@ jobs:
         route: /repos/kriscfoster/github-actions/issues/${{github.event.number}}/comments
         # Custom media type in the Accept header
 #         body: "{\"body\": \"hi\"}"
-        owner: "kriscfoster",
-        repo: "github-actions",
+        owner: "kriscfoster"
+        repo: "github-actions"
         body: 'body'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
