@@ -23,3 +23,4 @@ It won't run successfully on other operating systems due to the dependency on [p
 
 #### required environment variables
 - `CELEBRATION_IMAGES_BASE_PATH`
+- `DRIVE_FOLDER_ID`
