@@ -40,4 +40,4 @@ jobs:
         # Request Body as JSON String
         data: "{\"context_uri\":\"$SPOTIFY_CONTEXT_URI\",\"offset\":{\"position\":0},\"position_ms\":0}"
         # Bearer Authentication Token
-        bearerToken: $SPOTIFY_PLAYER_API_TOKEN
+        bearerToken: ${{ SPOTIFY_PLAYER_API_TOKEN }}
