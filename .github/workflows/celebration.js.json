@@ -1,0 +1,57 @@
+{
+  "name": "Celebration Workflow",
+  "on": {
+    "pull_request": {
+      "branches": [
+        "main"
+      ]
+    }
+  },
+  "jobs": {
+    "build": {
+      "runs-on": "ubuntu-latest",
+      "strategy": {
+        "matrix": {
+          "node-version": [
+            "16.x"
+          ]
+        }
+      },
+      "steps": [
+        {
+          "uses": "actions/checkout@v2"
+        },
+        {
+          "name": "Use Node.js ${{ matrix.node-version }}",
+          "uses": "actions/setup-node@v2",
+          "with": {
+            "node-version": "${{ matrix.node-version }}",
+            "cache": "npm"
+          }
+        },
+        {
+          "name": "Install dependencies",
+          "run": "npm ci"
+        },
+        {
+          "name": "Run tests",
+          "run": "npm test"
+        },
+        {
+          "name": "Post celebration picture",
+          "uses": "octokit/request-action@v2.1.0",
+          "with": {
+            "route": "POST /repos/${{ github.repository_owner }}/${{ github.event.repository.name }}/issues/${{ github.event.number }}/comments",
+            "owner": "${{ github.repository_owner }}",
+            "repo": "${{ github.event.repository.name }}",
+            "issue_number": "${{ github.event.number }}",
+            "body": "Build Succeeded, it's time to celebrate!:tada::tada::tada:![image](https://drive.google.com/uc?export=view&id=1QrUMKp0VjbRRQLG-rrN7iynADMvFIJJD)"
+          },
+          "env": {
+            "GITHUB_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+          }
+        }
+      ]
+    }
+  }
+}
