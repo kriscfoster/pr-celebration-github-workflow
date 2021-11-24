@@ -26,21 +26,22 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - run: npm test
-    - name: Play celebration song on Google Home with Spotify
-      # https://developer.spotify.com/console/put-play
-      # uses: fjogeleit/http-request-action@8e939c608aea2d5df19da3e8229cf035f7aa9e4c
-      uses: fjogeleit/http-request-action@v1.8.1
-      with:
-        # Request URL
-        url: https://api.spotify.com/v1/me/player/play?device_id=${{ secrets.SPOTIFY_DEVICE_ID }}
-        # Request Method
-        method: PUT
-        # Content Type
-        contentType: application/json
-        # Request Body as JSON String
-        data: "{\"context_uri\":\"${{ secrets.SPOTIFY_CONTEXT_URI }}\",\"offset\":{\"position\":0},\"position_ms\":0}"
-        # Bearer Authentication Token
-        bearerToken: ${{ secrets.SPOTIFY_PLAYER_API_TOKEN }}
+# This works but leaving out for now to avoid disturbance
+#     - name: Play celebration song on Google Home with Spotify
+#       # https://developer.spotify.com/console/put-play
+#       # uses: fjogeleit/http-request-action@8e939c608aea2d5df19da3e8229cf035f7aa9e4c
+#       uses: fjogeleit/http-request-action@v1.8.1
+#       with:
+#         # Request URL
+#         url: https://api.spotify.com/v1/me/player/play?device_id=${{ secrets.SPOTIFY_DEVICE_ID }}
+#         # Request Method
+#         method: PUT
+#         # Content Type
+#         contentType: application/json
+#         # Request Body as JSON String
+#         data: "{\"context_uri\":\"${{ secrets.SPOTIFY_CONTEXT_URI }}\",\"offset\":{\"position\":0},\"position_ms\":0}"
+#         # Bearer Authentication Token
+#         bearerToken: ${{ secrets.SPOTIFY_PLAYER_API_TOKEN }}
     - name: GitHub API Request
       # You may pin to the exact commit or the version.
       # uses: octokit/request-action@7e93b91076fad3920c29d44eb2a6311d929db3dd
