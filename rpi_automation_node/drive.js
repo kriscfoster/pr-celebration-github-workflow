@@ -6,12 +6,12 @@ const config = require('./config');
 const SCOPES = ['https://www.googleapis.com/auth/drive.file'];
 const TOKEN_PATH = 'token.json';
 
-let auth;
+let drive;
 
 fs.readFile('./credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
   return authorize(JSON.parse(content), async (a) => {
-    auth = a;
+    drive = google.drive({ version: 'v3', auth });
   })
 });
 
@@ -50,21 +50,16 @@ function getAccessToken(oAuth2Client, callback) {
   });
 }
 
-async function upload() {
-  const drive = google.drive({version: 'v3', auth});
-  const fileMetadata = {
-    'name': 'celebrate.jpeg',
-    parents: [ config.driveFolderId ]
-  };
-  const media = {
-    // mimeType: 'text/plain',
-    body: fs.createReadStream(`${ __dirname }/image.jpg`),
-  };
-
+async function upload(path) {
   const res = await drive.files.create({
-    resource: fileMetadata,
-    media: media,
-    fields: 'id'
+    resource: {
+      name: 'celebrate.jpeg',
+      parents: [ config.driveFolderId ]
+    },
+    media: {
+      body: fs.createReadStream(path)
+    },
+    fields: 'id',
   });
 
   return res.data
