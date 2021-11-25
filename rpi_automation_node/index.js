@@ -1,9 +1,12 @@
-const PiCamera = require('pi-camera');
 const express = require('express');
+const PiCamera = require('pi-camera');
+const { upload } = require('./drive');
+const { port } = require('./config');
 
 const app = express();
 
-app.get('/celebrate', async (req, res) => {
+app.get('/celebrate', async (_req, res) => {
+  console.log('celebrate request received');
   const myCamera = new PiCamera({
     mode: 'photo',
     output: `${ __dirname }/image.jpg`,
@@ -14,12 +17,17 @@ app.get('/celebrate', async (req, res) => {
 
   try {
     await myCamera.snap();
+
+    const response = await upload();
+    console.log(response)
+
     res.sendStatus(200);
   } catch(err) {
     console.error('something went wrong');
-    console.error(error);
+    console.error(err);
     res.sendStatus(500);
   }
 });
 
-app.listen(5000);
+app.listen(port);
+console.log('app listening..');

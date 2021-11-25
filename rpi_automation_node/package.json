@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "googleapis": "^39.2.0",
+    "node-google-drive": "^1.1.2",
     "pi-camera": "^1.6.0"
   }
 }
