@@ -14,6 +14,6 @@ def upload_file(file_path):
   print(file_path)
   gfile.SetContentFile("/home/pi/celebration_images/1637827012932.jpg")
   print(gfile)
-  # gfile.Upload()
+  gfile.Upload()
   print("file successfully uploaded")
   return gfile['id']
