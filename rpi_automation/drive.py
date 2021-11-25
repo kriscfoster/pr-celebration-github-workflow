@@ -15,8 +15,8 @@ def upload_file(file_path):
   # gfile.SetContentFile("/home/pi/celebration_images/1637827012932.jpg")
   # print(gfile)
   # gfile.Upload()
-  file1 = drive.CreateFile({'title': 'Hello.txt'})
-  file1.Upload()
+  file1 = drive.CreateFile({"title": "Hello.txt"})
   print(file1)
+  file1.Upload()
   print("file successfully uploaded")
   return file1['id']
