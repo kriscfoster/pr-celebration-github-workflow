@@ -1,2 +1,6 @@
 node_modules/
 env/
+__pycache__/
+rpi_automation/client_secrets.json
+credentials.json
+token.json
