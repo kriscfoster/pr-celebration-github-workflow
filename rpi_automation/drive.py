@@ -9,10 +9,11 @@ drive_folder_id=os.environ.get('DRIVE_FOLDER_ID')
 
 def upload_file(file_path):
   print("uploading file")
-  gfile = drive.CreateFile()
+  gfile = drive.CreateFile({"parents": [{"id": drive_folder_id}]})
   print(gfile)
-  # print(file_path)
+  print(file_path)
   gfile.SetContentFile("/home/pi/celebration_images/1637827012932.jpg")
-  gfile.Upload()
+  print(gfile)
+  # gfile.Upload()
   print("file successfully uploaded")
   return gfile['id']
