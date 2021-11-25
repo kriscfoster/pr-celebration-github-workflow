@@ -10,7 +10,7 @@ let drive;
 
 fs.readFile('./credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
-  return authorize(JSON.parse(content), async (a) => {
+  return authorize(JSON.parse(content), async (auth) => {
     drive = google.drive({ version: 'v3', auth });
   })
 });
