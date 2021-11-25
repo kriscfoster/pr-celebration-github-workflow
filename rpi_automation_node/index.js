@@ -1,16 +1,23 @@
 const PiCamera = require('pi-camera');
-const myCamera = new PiCamera({
-  mode: 'photo',
-  output: `${ __dirname }/test.jpg`,
-  width: 640,
-  height: 480,
-  nopreview: true,
-});
+const express = require('express');
 
-myCamera.snap()
-  .then((result) => {
-    // Your picture was captured
-  })
-  .catch((error) => {
-     // Handle your error
+const app = express();
+
+app.get('/celebrate', async (req, res) => {
+  const myCamera = new PiCamera({
+    mode: 'photo',
+    output: `${ __dirname }/image.jpg`,
+    width: 640,
+    height: 480,
+    nopreview: true,
   });
+
+  try {
+    await myCamera.snap();
+    res.sendStatus(200);
+  } catch(err) {
+    console.error('something went wrong');
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
