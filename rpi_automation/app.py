@@ -1,18 +1,17 @@
 from flask import Flask
 
+from picture import take_picture
 from drive import upload_file
 
 app = Flask(__name__)
 
-upload_file("/Users/kfoster/Developer/projects/github-actions/requirements.txt")
-
 @app.route('/celebrate')
 def index():
-  # TODO: Take celebration picture
-  # TODO: Upload picture to google drive
-  # TODO: Return id google drive image
+  # TODO: Authentication
+  picture_path = take_picture()
+  id = upload_file(picture_path)
   return {
-    'id': '1QrUMKp0VjbRRQLG-rrN7iynADMvFIJJD'
+    'id': id
   }
 
 if __name__ == '__main__':
