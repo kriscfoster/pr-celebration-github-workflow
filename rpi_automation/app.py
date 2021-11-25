@@ -8,6 +8,7 @@ app = Flask(__name__)
 @app.route('/celebrate')
 def index():
   # TODO: Authentication
+  print("received celebrate request")
   picture_path = take_picture()
   id = upload_file(picture_path)
   return {
