@@ -12,7 +12,7 @@ def upload_file(file_path):
   # gfile = drive.CreateFile({"parents": [{"id": drive_folder_id}]})
   # print(gfile)
   # print(file_path)
-  # gfile.SetContentFile("/home/pi/celebration_images/1637827012932.jpg")
+  # gfile.SetContentFile(file_path)
   # print(gfile)
   # gfile.Upload()
   file1 = drive.CreateFile({"title": "Hello.txt"})
