@@ -1,17 +1,15 @@
 {
-  "name": "rpi_automation_node",
+  "name": "rpi-automation",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "googleapis": "^39.2.0",
-    "node-google-drive": "^1.1.2",
     "pi-camera": "^1.6.0"
   }
 }
