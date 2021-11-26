@@ -11,5 +11,6 @@ This application integrates with the Google Drive API. You will need to obtain v
 
 ##### environment variables
 
-- `DRIVE_FOLDER_ID`
-- `PORT`
+- `DRIVE_FOLDER_ID` - Id of Drive folder to upload to.
+- `PORT` - Port application listens on.
+- `AUTHORIZATION_TOKEN` - Authorization token for authorizing requests.
