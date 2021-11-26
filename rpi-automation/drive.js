@@ -1,7 +1,7 @@
 const fs = require('fs');
 const readline = require('readline');
 const { google } = require('googleapis');
-const config = require('./config');
+const { driveFolderId, imagePath } = require('./config');
 
 const SCOPES = ['https://www.googleapis.com/auth/drive.file'];
 const TOKEN_PATH = 'token.json';
@@ -50,14 +50,14 @@ function getAccessToken(oAuth2Client, callback) {
   });
 }
 
-async function upload(path) {
+async function upload() {
   const res = await drive.files.create({
     resource: {
       name: 'celebrate.jpeg',
-      parents: [ config.driveFolderId ]
+      parents: [ driveFolderId ]
     },
     media: {
-      body: fs.createReadStream(path)
+      body: fs.createReadStream(imagePath),
     },
     fields: 'id',
   });
