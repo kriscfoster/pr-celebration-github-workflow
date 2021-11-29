@@ -7,6 +7,7 @@ const soundPlayer = new soundplayer({
   debug: true,
   player: 'aplay',
   device: 'plughw:0,0',
+  gain: 50,
 });
 
 soundPlayer.on('error', function(err) {
