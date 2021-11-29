@@ -22,7 +22,7 @@ jobs:
       run: npm ci
     - name: Run tests
       run: npm test
-    - name: "Turn on Office Lamp"
+    - name: Turn office light on with green
       uses: kriscfoster/tplink-action@v1.4
       with:
         email: ${{ secrets.TPLINK_EMAIL }}
@@ -30,10 +30,8 @@ jobs:
         deviceType: "HS100" # currently supported: "HS100"
         deviceId: ${{ secrets.TPLINK_DEVICE_ID }} # this can be the id/alias of the device
         operation: "powerOn" # currently supported: "powerOn", "powerOff", "listDevices"
-# This works but leaving out for now to avoid disturbance
-    - name: Play celebration song on Google Home with Spotify
+    - name: Play celebration song with Spotify
       # https://developer.spotify.com/console/put-play
-      # uses: fjogeleit/http-request-action@8e939c608aea2d5df19da3e8229cf035f7aa9e4c
       uses: fjogeleit/http-request-action@v1.8.1
       with:
         url: https://api.spotify.com/v1/me/player/play?device_id=${{ secrets.SPOTIFY_DEVICE_ID }}
@@ -41,10 +39,10 @@ jobs:
         contentType: application/json
         data: "{\"context_uri\":\"${{ secrets.SPOTIFY_CONTEXT_URI }}\",\"offset\":{\"position\":0},\"position_ms\":0}"
         bearerToken: ${{ secrets.SPOTIFY_PLAYER_API_TOKEN }}
-    - name: Sleep for 10 seconds
+    - name: Enjoy song for 10 seconds
       run: sleep 10s
       shell: bash
-    - name: Retrieve celebration picture
+    - name: Take celebration picture
       id: retrieve_celebration_picture
       run: |
         echo "::set-output name=id::$(curl -H Authorization:${{ secrets.AUTHORIZATION_TOKEN }} ${{ secrets.PI_ENDPOINT }} | jq .id | tr -d '"')"
@@ -55,6 +53,6 @@ jobs:
         owner: ${{ github.repository_owner }}
         repo: ${{ github.event.repository.name }}
         issue_number: ${{ github.event.number }}
-        body: "&#35;&#35;&#35; Tests Passed, it's time to celebrate! :tada::tada::tada:![image](https://drive.google.com/uc?export=view&id=${{ steps.retrieve_celebration_picture.outputs.id }})"
+        body: "Tests Passed, it's time to celebrate! :tada::tada::tada:![image](https://drive.google.com/uc?export=view&id=${{ steps.retrieve_celebration_picture.outputs.id }})"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
