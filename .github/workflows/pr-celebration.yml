@@ -53,6 +53,6 @@ jobs:
         owner: ${{ github.repository_owner }}
         repo: ${{ github.event.repository.name }}
         issue_number: ${{ github.event.number }}
-        body: "Tests Passed, it's time to celebrate! :tada::tada::tada: ![image](https://drive.google.com/uc?export=view&id=${{ steps.retrieve_celebration_picture.outputs.id }})"
+        body: "Tests Passed, it's time to celebrate!:tada::tada::tada:![image](https://drive.google.com/uc?export=view&id=${{ steps.retrieve_celebration_picture.outputs.id }})"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
