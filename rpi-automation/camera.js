@@ -24,8 +24,7 @@ const myCamera = new PiCamera({
 async function takePhoto() {
   console.log('starting playing sound');
   soundPlayer.play();
-  console.log('sound finished');
-  await sleep(3000); // this is messy because 'soundPlayer' doesn't support await
+  await sleep(1000); // this is messy because 'soundPlayer' doesn't support await
   console.log('taking picture');
   await myCamera.snap();
 }
