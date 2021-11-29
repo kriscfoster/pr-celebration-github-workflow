@@ -24,10 +24,15 @@ const myCamera = new PiCamera({
 async function takePhoto() {
   console.log('starting playing sound');
   soundPlayer.play();
-  setTimeout(async () => {
-    console.log('taking picture');
-    await myCamera.snap();
-  }, 3000);
+  await sleep(3000); // this is messy because 'soundPlayer' doesn't support await
+  console.log('taking picture');
+  await myCamera.snap();
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
 }
 
 module.exports = {
