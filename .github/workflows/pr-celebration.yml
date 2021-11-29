@@ -41,8 +41,8 @@ jobs:
         contentType: application/json
         data: "{\"context_uri\":\"${{ secrets.SPOTIFY_CONTEXT_URI }}\",\"offset\":{\"position\":0},\"position_ms\":0}"
         bearerToken: ${{ secrets.SPOTIFY_PLAYER_API_TOKEN }}
-    - name: Sleep for 5 seconds
-      run: sleep 5s
+    - name: Sleep for 10 seconds
+      run: sleep 10s
       shell: bash
     - name: Retrieve celebration picture
       id: retrieve_celebration_picture
