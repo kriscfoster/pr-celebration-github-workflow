@@ -23,7 +23,7 @@ jobs:
     - name: Run tests
       run: npm test
     - name: "Turn on Office Lamp"
-      uses: kriscfoster/tplink-action@v1.0
+      uses: kriscfoster/tplink-action@v1.2
       with:
         email: ${{ secrets.TPLINK_EMAIL }}
         password: ${{ secrets.TPLINK_PASSWORD }}
