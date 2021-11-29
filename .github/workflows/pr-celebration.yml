@@ -22,6 +22,14 @@ jobs:
       run: npm ci
     - name: Run tests
       run: npm test
+    - name: "Turn on Office Lamp"
+      uses: kriscfoster/tplink-action@v1.0
+      with:
+        email: ${{ secrets.TPLINK_EMAIL }}
+        password: ${{ secrets.TPLINK_PASSWORD }}
+        deviceType: "HS100" # currently supported: "HS100"
+        deviceId: ${{ secrets.TPLINK_DEVICE_ID }} # this can be the id/alias of the device
+        operation: "powerOn" # currently supported: "powerOn", "powerOff", "listDevices"
 # This works but leaving out for now to avoid disturbance
 #     - name: Play celebration song on Google Home with Spotify
 #       # https://developer.spotify.com/console/put-play
