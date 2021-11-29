@@ -9,6 +9,10 @@ const soundPlayer = new soundplayer({
   device: 'plughw:0,0',
 });
 
+soundPlayer.on('error', function(err) {
+  console.error('error playing sound: ', err);
+});
+
 const myCamera = new PiCamera({
   mode: 'photo',
   output: imagePath,
@@ -18,16 +22,12 @@ const myCamera = new PiCamera({
 });
 
 async function takePhoto() {
-  soundPlayer.on('error', function(err) {
-    console.error('error playing sound: ', err);
-  });
-
-  soundPlayer.on('complete', async () => {
-    console.log('finished playing sound');
-    await myCamera.snap();
-  });
-
+  console.log('starting playing sound');
   soundPlayer.play();
+  setTimeout(async () => {
+    console.log('taking picture');
+    await myCamera.snap();
+  }, 3000);
 }
 
 module.exports = {
