@@ -31,16 +31,19 @@ jobs:
         deviceId: ${{ secrets.TPLINK_DEVICE_ID }} # this can be the id/alias of the device
         operation: "powerOn" # currently supported: "powerOn", "powerOff", "listDevices"
 # This works but leaving out for now to avoid disturbance
-#     - name: Play celebration song on Google Home with Spotify
-#       # https://developer.spotify.com/console/put-play
-#       # uses: fjogeleit/http-request-action@8e939c608aea2d5df19da3e8229cf035f7aa9e4c
-#       uses: fjogeleit/http-request-action@v1.8.1
-#       with:
-#         url: https://api.spotify.com/v1/me/player/play?device_id=${{ secrets.SPOTIFY_DEVICE_ID }}
-#         method: PUT
-#         contentType: application/json
-#         data: "{\"context_uri\":\"${{ secrets.SPOTIFY_CONTEXT_URI }}\",\"offset\":{\"position\":0},\"position_ms\":0}"
-#         bearerToken: ${{ secrets.SPOTIFY_PLAYER_API_TOKEN }}
+    - name: Play celebration song on Google Home with Spotify
+      # https://developer.spotify.com/console/put-play
+      # uses: fjogeleit/http-request-action@8e939c608aea2d5df19da3e8229cf035f7aa9e4c
+      uses: fjogeleit/http-request-action@v1.8.1
+      with:
+        url: https://api.spotify.com/v1/me/player/play?device_id=${{ secrets.SPOTIFY_DEVICE_ID }}
+        method: PUT
+        contentType: application/json
+        data: "{\"context_uri\":\"${{ secrets.SPOTIFY_CONTEXT_URI }}\",\"offset\":{\"position\":0},\"position_ms\":0}"
+        bearerToken: ${{ secrets.SPOTIFY_PLAYER_API_TOKEN }}
+    - name: Sleep for 5 seconds
+      run: sleep 5s
+      shell: bash
     - name: Retrieve celebration picture
       id: retrieve_celebration_picture
       run: |
