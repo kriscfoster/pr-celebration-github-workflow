@@ -1,6 +1,13 @@
 const PiCamera = require('pi-camera');
-const player = require('play-sound')(opts = {})
+const soundplayer = require('sound-player');
 const { imagePath } = require('./config');
+
+const soundPlayer = new soundplayer({
+  filename: 'start.wav',
+  debug: true,
+  player: 'aplay',
+  device: 'plughw:0,0',
+});
 
 const myCamera = new PiCamera({
   mode: 'photo',
@@ -11,10 +18,16 @@ const myCamera = new PiCamera({
 });
 
 async function takePhoto() {
-  player.play('./start.wav', async () => {
+  soundPlayer.on('error', function(err) {
+    console.error('error playing sound: ', err);
+  });
+
+  soundPlayer.on('complete', async () => {
+    console.log('finished playing sound');
     await myCamera.snap();
   });
 
+  soundPlayer.play();
 }
 
 module.exports = {
