@@ -44,7 +44,7 @@ jobs:
     - name: Retrieve celebration picture
       id: retrieve_celebration_picture
       run: |
-        echo "::set-output name=id::$(curl -H Authorization: ${{ secrets.AUTHORIZATION_TOKEN }} ${{ secrets.PI_ENDPOINT }} | jq .id | tr -d '"')"
+        echo "::set-output name=id::$(curl -H Authorization:${{ secrets.AUTHORIZATION_TOKEN }} ${{ secrets.PI_ENDPOINT }} | jq .id | tr -d '"')"
     - name: Post celebration picture
       uses: octokit/request-action@v2.1.0
       with:
