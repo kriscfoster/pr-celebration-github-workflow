@@ -22,7 +22,7 @@ jobs:
       run: npm ci
     - name: Run tests
       run: npm test
-    - name: Turn office light on with green
+    - name: Turn office lamp on with green
       uses: kriscfoster/tplink-action@v1.4
       with:
         email: ${{ secrets.TPLINK_EMAIL }}
