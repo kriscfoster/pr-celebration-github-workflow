@@ -89,10 +89,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-#### Link to Code
-
-{% github github.com/kriscfoster/pr-celebration-github-workflow %}
-
 #### How was this Made?
 
 I already had some smart devices so decided to use whatever I already had for the workflow.
