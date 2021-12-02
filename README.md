@@ -14,6 +14,7 @@ Pull requests deserve to be celebrated 🎉! This workflow integrates with smart
 4. Send request to **Raspberry Pi** 🥧 to take a celebration photo.
 
     a. Raspberry Pi **takes the photo** 📸.
+
     b. Raspberry Pi **uploads the photo** to cloud storage.
 
 5. **Post message** with the celebration picture to the pull request 🎉🎉🎉.
