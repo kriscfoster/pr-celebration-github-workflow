@@ -12,6 +12,7 @@ Pull requests deserve to be celebrated 🎉! This workflow integrates with smart
 2. Play celebration music 🎵 on **smart speaker**.
 3. Wait 10 seconds to **enjoy the music** 🕺.
 4. Send request to **Raspberry Pi** 🥧 to take a celebration photo.
+
     a. Raspberry Pi **takes the photo** 📸.
     b. Raspberry Pi **uploads the photo** to cloud storage.
 
@@ -19,7 +20,7 @@ Pull requests deserve to be celebrated 🎉! This workflow integrates with smart
 
 ### Video Demo
 
-{% youtube dQw4w9WgXcQ %}
+You can see a video demo of the GitHub workflow in action [here](https://youtu.be/LYscH7z0g6M).
 
 ### Submission Category: 
 
@@ -119,8 +120,5 @@ I use the `octokit/request-action` action to post the photo from cloud storage t
 
 ### Additional Resources / Info
 
-[Note:] # (Be sure to link to any open source projects that are using your workflow!)
-
-[Note]: # (Be sure to include the DEV usernames of your collaborators, if any. )
-
-[Reminder]: # (Submissions are due on December 8th, 2021 (11:59 PM PT or 2 AM ET/6 AM UTC on December 9th).
+- [Spotify API Endpoint](https://developer.spotify.com/console/put-play)
+- [TP Link GitHub Action](https://github.com/kriscfoster/tplink-action)
