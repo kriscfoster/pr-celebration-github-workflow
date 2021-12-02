@@ -1,6 +1,6 @@
 # PR Celebration GitHub Workflow 🎉🎉🎉
 
-[Instructions]: # (To submit to the GitHub Actions x DEV Hackathon 2021, please fill out all sections.)
+This is an entry for the 2021 GitHub Actions Hackathon.
 
 ![GitHub Celebration IOT Workflow](https://user-images.githubusercontent.com/17026751/144413207-cf86613a-18c9-439b-a09b-a8a4e6359042.png)
 
