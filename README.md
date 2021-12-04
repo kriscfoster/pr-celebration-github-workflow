@@ -11,7 +11,7 @@ Pull requests deserve to be celebrated 🎉! This workflow integrates with smart
 1. Turn on 🟢 **smart bulb**.
 2. Play celebration music 🎵 on **smart speaker**.
 3. Wait 10 seconds to **enjoy the music** 🕺.
-4. Send request to **Raspberry Pi** 🥧 to take a celebration photo.
+4. Send request to **Raspberry Pi** 🥧 to take a celebration photo:
 
     a. Raspberry Pi **takes the photo** 📸.
 
