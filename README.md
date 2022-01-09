@@ -21,7 +21,7 @@ Pull requests deserve to be celebrated 🎉! This workflow integrates with smart
 
 ### Video Demo
 
-You can see a video demo of the GitHub workflow in action [here](https://youtu.be/LYscH7z0g6M).
+You can see a video demo of the GitHub workflow in action [here](https://youtu.be/31LWudv6Lpk).
 
 ### Submission Category: 
 
